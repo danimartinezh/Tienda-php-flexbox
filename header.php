@@ -8,8 +8,8 @@ echo '<header>
         </div>
         <nav class="menu col-xs-12 col-sm-8 center-xs end-sm">
           <a href="#">Inicio</a>
-          <a href="#">Iniciar Sesion</a>
-          <a href="#">Registrate</a>
+          <a href="login.php">Iniciar Sesion</a>
+          <a href="registro.php">Registrate</a>
         </nav>
       </div>
     </div>

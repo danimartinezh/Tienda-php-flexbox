@@ -4,51 +4,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/flexboxgrid.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/animate.css">
-
-  <link href="https://fonts.googleapis.com/css?family=Lobster|Ubuntu" rel="stylesheet">
-
+  <?php include 'head.php';?>
   <title>Peces Componentes</title>
 </head>
 <body id="login">
-    <div class="container">
-      <div class="contenedor-aut">
-        <div class="row">
-        <form class="formulario" method="post" action="validar.php">
-          <div class="form-item form-header">
-              <img src="img/logo.png" alt="">
-          </div>
-          <div class="form-item form-body">
+  <div class="container">
+    <div class="contenedor-aut">
+      <div class="row">
+        <form class="formularioregistro" method="post" action="validar.php">
+          <div class="form-header">
+            <img src="img/logo.png" alt="">
             <h3 class="item">Registro</h3>
-            <div class="input-group item">
-              <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
-              <input class="form-control" type="text" placeholder="">
+          </div>
+          <div class="form-body form-registro">
+
+            <div class="columna">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                <input class="form-control" type="text" name="nombre" placeholder="Nombre">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                <input class="form-control" type="text" name="username" placeholder="Usuario">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                <input class="form-control" type="text" name="poblacion" placeholder="Población">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                <input class="form-control" type="text" name="correo" placeholder="Correo Electronico">
+              </div>
             </div>
-            <div class="input-group item">
-              <span class="input-group-addon"><i class="fa fa-key fa-fw" aria-hidden="true"></i></span>
-              <input class="form-control" type="password" placeholder="">
+            <div class="columna">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                <input class="form-control" type="text" name="apellidos" placeholder="Apellidos">
+              </div>
+              <div class="input-group desplegable">
+                <span class="input-group-addon"><i class="fa fa-list" aria-hidden="true"></i></span>
+                <select class="custom-select col-md-10" name="genero" required>
+                  <option value="0">Hombre</option>
+                  <option value="1">Mujer</option>
+                  <option value="2">Otros</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                <input class="form-control" type="text" name="ciudad" placeholder="Ciudad">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                <input class="form-control" type="password" name="password" placeholder="Contraseña">
+              </div>
             </div>
+            <!--<div class="input-group alert alert-danger middle-sm error" role="alert">
+              <span><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><strong> El usuario o contraseña no existe</strong></span>
+            </div>-->
           </div>
           <div class="form-footer">
             <button class="boton" type="submit" name="login">Registrarme</button>
           </div>
         </form>
-        </div>
       </div>
     </div>
-    <!--<form action="">
-      <div class="input-group margin-bottom-sm">
-        <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></span>
-        <input class="form-control" type="text" placeholder="Email address">
-      </div>
-      <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-key fa-fw" aria-hidden="true"></i></span>
-        <input class="form-control" type="password" placeholder="Password">
-      </div>
-    </form>-->
+  </div>
 </body>
 </html>
