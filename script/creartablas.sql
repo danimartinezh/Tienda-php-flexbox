@@ -47,6 +47,13 @@ create table if not exists tbl_categoria(
     nom varchar(30) primary key,
     description longtext
 )engine=innodb;
+select * from tbl_categoria order by nom ASC;
+delete from tbl_categoria where nom like 'C%';
+
+INSERT INTO tbl_categoria (nom,description) VALUES
+('Categoria 1', 'Productos sobre categoria 1'),('Categoria 2', 'Productos sobre categoria 2'),('Categoria 3', 'Productos sobre categoria 3')
+,('Categoria 4', 'Productos sobre categoria 4'),('Categoria 5', 'Productos sobre categoria 5'),('Categoria 6', 'Productos sobre categoria 6')
+,('Categoria 7', 'Productos sobre categoria 7'),('Categoria 8', 'Productos sobre categoria 8'),('Categoria 9', 'Productos sobre categoria 9');
 
 create table if not exists tbl_marca(
 	nom varchar(30) primary key,

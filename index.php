@@ -15,7 +15,9 @@
 </head>
 <body>
   <?php
-  include 'header.php'
+  include 'datosbbdd.php';
+  include 'header.php';
+  include 'body.php';
   ?>
 </body>
 </html>

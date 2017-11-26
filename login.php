@@ -1,10 +1,17 @@
+<?php
+SESSION_START();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <?php include 'head.php';?>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/flexboxgrid.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lobster|PT+Sans" rel="stylesheet">
   <title>Peces Componentes</title>
 </head>
 <body id="login">
@@ -19,18 +26,24 @@
           <div class="form-body form-login">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
-              <input class="form-control" type="text" placeholder="Usuario">
+              <input class="form-control" type="text" name="username" placeholder="Usuario">
             </div>
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-key fa-fw" aria-hidden="true"></i></span>
-              <input class="form-control" type="password" placeholder="Contraseña">
+              <input class="form-control" type="password" name="password" placeholder="Contraseña">
             </div>
-            <div class="input-group alert alert-danger middle-sm error" role="alert">
-              <span><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><strong> El usuario o contraseña no existe</strong></span>
-            </div>
+            <?php
+            if(isset($_SESSION['existe'])){
+              if(!$_SESSION['existe']){
+                echo '<div class="input-group alert alert-danger middle-sm error" role="alert">
+                  <span><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><strong> El usuario o contraseña no existe</strong></span>
+                </div>';
+              }
+            }
+             ?>
           </div>
           <div class="form-footer">
-            <button class="boton" type="submit" name="login">Iniciar sesión</button>
+            <button class="boton" type="submit" value="login" name="btn">Iniciar sesión</button>
           </div>
         </form>
       </div>
@@ -38,3 +51,4 @@
   </div>
 </body>
 </html>
+<?php SESSION_DESTROY();?>

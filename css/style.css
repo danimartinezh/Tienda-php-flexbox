@@ -5,7 +5,7 @@
 body{
   background: #f2f2f2;
   font-family: "Open Sans", sans-serif;
-  color: #fff;
+  color: #000;
 }
 header{
   color: #fff;
@@ -27,6 +27,9 @@ header a{
 }
 .sub-menu{
   background-color: #7F8C8D;
+}
+.categorias{
+  flex-wrap: wrap;
 }
 .sub-menu .categorias{
   padding: 20px;
@@ -92,6 +95,14 @@ header a{
 .form-footer:hover{
   width: 80%;
 }
+.custom-select{
+  color: #fff;
+  background-color: rgba(255,255,255,0.3);
+}
+.custom-select:focus{
+  color: #000;
+  background-color: rgba(255,255,255,1);
+}
 .form-control,.form-control:active{
   color: #fff;
   background-color: rgba(255,255,255,0.3);
@@ -139,7 +150,7 @@ header a{
 }
 .formularioregistro{
   width: 800px;
-  height: 440px;
+  height: 560px;
   border-radius: 5px;
   background-color: rgba(0,0,0,0.3);
   display: flex;
@@ -161,6 +172,28 @@ color: white !important; /* !important le añade prioridad sobre la clase de fle
 .desplegable{
   font-family: 'PT Sans', sans-serif;
 }
+.fecherror{
+  width: 50%;
+}
+.main{
+  margin: 40px 0;
+}
+.main .articulo{
+  margin-bottom: 20px;
+}
+.main .articulo img{
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
