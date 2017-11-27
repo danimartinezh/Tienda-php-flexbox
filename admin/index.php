@@ -12,6 +12,15 @@
 <body>
   <?php
   include 'header.php';
-   ?>
+  ?>
+  <div class="container">
+    <div class="contenedor">
+      <div class="row">
+        <div class="contenido">
+          
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

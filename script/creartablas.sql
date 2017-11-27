@@ -48,7 +48,7 @@ create table if not exists tbl_categoria(
     description longtext
 )engine=innodb;
 select * from tbl_categoria order by nom ASC;
-delete from tbl_categoria where nom like 'C%';
+delete from tbl_categoria where nom like 'a%';
 
 INSERT INTO tbl_categoria (nom,description) VALUES
 ('Categoria 1', 'Productos sobre categoria 1'),('Categoria 2', 'Productos sobre categoria 2'),('Categoria 3', 'Productos sobre categoria 3')
@@ -59,6 +59,8 @@ create table if not exists tbl_marca(
 	nom varchar(30) primary key,
     description longtext
 )engine=innodb;
+select * from tbl_marca;
+INSERT INTO tbl_marca (nom,description) VALUES ('MarcaPrueba','DescripcionPrueba');
 
 create table if not exists tbl_product(
 	ID int(5) primary key,
@@ -82,6 +84,14 @@ create table if not exists tbl_product(
 		on delete no action
         on update cascade
 )engine=innodb;
+
+select * from tbl_product;
+INSERT INTO tbl_product (ID,nom,image,precio,cost,category,dte,stock,description,marca) VALUES (0,'Pelota','URL',199,200,'Categoria 1',0,77,'Descripcion larga xd','MarcaPrueba');
+INSERT INTO tbl_product (ID,nom,image,precio,cost,category,dte,stock,description,marca) VALUES (1,'Pelota','URL',199,200,'Categoria 1',0,77,'Descripcion larga xd','MarcaPrueba');
+INSERT INTO tbl_product (ID,nom,image,precio,cost,category,dte,stock,description,marca) VALUES (2,'Pelota','URL',199,200,'Categoria 1',0,77,'Descripcion larga xd','MarcaPrueba');
+INSERT INTO tbl_product (ID,nom,image,precio,cost,category,dte,stock,description,marca) VALUES (3,'Pelota','URL',199,200,'Categoria 1',0,77,'Descripcion larga xd','MarcaPrueba');
+
+select max(id) from tbl_product;
 
 create table if not exists tbl_orderHeader(
 	usuari varchar(20) not null,
@@ -107,6 +117,7 @@ create table if not exists tbl_orderLine(
     constraint fk_order_HeaderLine foreign key(idPedido)
     references tbl_orderHeader (numPedido)
 )engine=innodb;
+
 
 
 

@@ -1,3 +1,4 @@
+<?php SESSION_START(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -58,19 +59,25 @@
 
               }else if($_GET['opcion']=='add'){
                 echo '
-                <form class="form-inline" method="post" action="">
+                <form class="form-inline" method="post" action="validar.php">
                   <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                     <i class="input-group-addon fa fa-font" aria-hidden="true"></i>
-                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Nombre">
+                    <input type="text" name="nombre" class="form-control" placeholder="Nombre">
                   </div>
                   <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                     <i class="input-group-addon fa fa-comment" aria-hidden="true"></i>
-                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Descripción">
+                    <input type="text" name="descripcion" class="form-control" placeholder="Descripción">
                   </div>
-
-                  <button type="submit" class="btn btn-primary">Añadir categoria</button>
+                  <button type="submit" name="btn" value="categoria" class="btn btn-primary">Añadir categoria</button>
                 </form>
                 ';
+                if(isset($_SESSION['existe'])){
+                  if(!$_SESSION['existe']){
+                    echo '<div class="input-group alert alert-danger middle-sm" role="alert">
+                      <span><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><strong> Esta categoria ya existe</strong></span>
+                    </div>';
+                  }
+                }
               }
             }
             ?>
@@ -83,3 +90,4 @@
   </div>
 </body>
 </html>
+<?php SESSION_DESTROY();?>
