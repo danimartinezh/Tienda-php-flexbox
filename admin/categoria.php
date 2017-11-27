@@ -58,7 +58,7 @@
 
               }else if($_GET['opcion']=='add'){
                 echo '
-                <form class="form-inline">
+                <form class="form-inline" method="post" action="">
                   <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                     <i class="input-group-addon fa fa-font" aria-hidden="true"></i>
                     <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Nombre">
