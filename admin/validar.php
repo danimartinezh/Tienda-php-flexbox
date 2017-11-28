@@ -25,8 +25,12 @@ if($_REQUEST['btn']=='categoria'){
     $_SESSION['existe']=0;
     header('Location: categoria.php?opcion=add');
   }
-}else if($_REQUEST['btn']=='categoria'){
-
+}else if($_REQUEST['btn']=='eliminar'){
+  $categoria = $_REQUEST['eliminarCat'];
+  $sql = "DELETE FROM tbl_categoria where nom='".$categoria."'";
+  $result = mysqli_query($conexion,$sql);
+  mysqli_close($conexion);
+  header('Location: categoria.php?opcion=lista');
 }
 
 

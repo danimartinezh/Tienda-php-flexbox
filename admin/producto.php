@@ -17,17 +17,18 @@
   include '../datosbbdd.php';
   ?>
   <div class="main">
-    <div class="container">
+    <div class="containermain">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <nav class="navbar navbar-light bg-faded">
-            <a class="navbar-brand" href="categoria.php?opcion=lista"><i class="fa fa-th-list fa-fw" aria-hidden="true"></i>Lista de categorias</a>
-            <a class="navbar-brand" href="categoria.php?opcion=add"><i class="fa fa-plus-square fa-fw" aria-hidden="true"></i>Añadir categoria</a>
+            <a class="navbar-brand" href="producto.php?opcion=lista"><i class="fa fa-th-list fa-fw" aria-hidden="true"></i>Lista de productos</a>
+            <a class="navbar-brand" href="producto.php?opcion=add"><i class="fa fa-plus-square fa-fw" aria-hidden="true"></i>Añadir producto</a>
+            <a class="navbar-brand" href="producto.php?opcion=del"><i class="fa fa-trash fa-fw" aria-hidden="true"></i>Eliminar producto</a>
           </nav>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-10">
           <div class="cabecera">
-            <h1>Categorias</h1>
+            <h1>Producto</h1>
           </div>
           <div class="body">
             <div class="contenedor">
@@ -35,8 +36,7 @@
             <?php
             if(isset($_GET['opcion'])){
               if($_GET['opcion']=='lista'){
-                $num = 1;
-                $sql = "SELECT * from tbl_categoria";
+                $sql = "SELECT * from tbl_product";
                 $result = mysqli_query($conexion,$sql);
                 echo '
                 <table class="table table-bordered">
@@ -44,16 +44,29 @@
                     <tr>
                       <th>#</th>
                       <th>Nombre</th>
+                      <th>Imagen</th>
+                      <th>Precio</th>
+                      <th>Coste</th>
+                      <th>Categoria</th>
+                      <th>Descuento</th>
+                      <th>Stock</th>
                       <th>Descripcion</th>
+                      <th>Marca</th>
                     </tr>
                   </thead>';
                 while($resultado=mysqli_fetch_assoc($result)){
                   echo '<tbody>
                   <tr>
-                  <th scope="row">'.$num.'</th>
+                  <th scope="row">'.$resultado['ID'].'</th>
                   <td>'.$resultado['nom'].'</td>
-                  <td>'.$resultado['description'].'</td></tr></tbody>';
-                  $num++;
+                  <td>'.$resultado['image'].'</td>
+                  <td>'.$resultado['precio'].'</td>
+                  <td>'.$resultado['cost'].'</td>
+                  <td>'.$resultado['category'].'</td>
+                  <td>'.$resultado['dte'].'</td>
+                  <td>'.$resultado['stock'].'</td>
+                  <td>'.$resultado['description'].'</td>
+                  <td>'.$resultado['marca'].'</td></tr></tbody>';
                 }
                 echo '</table>';
 
@@ -78,6 +91,23 @@
                     </div>';
                   }
                 }
+              }else if($_GET['opcion']=='del'){
+                echo '
+                <form class="form-inline" method="post" action="validar.php">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <span class="input-group-addon"><i class="fa fa-list" aria-hidden="true"></i></span>
+                    <select class="custom-select" name="eliminarCat">';
+                    $sql = "SELECT nom from tbl_categoria";
+                    $result = mysqli_query($conexion,$sql);
+                    while($resultado=mysqli_fetch_assoc($result)){
+                      echo '<option value="'.$resultado['nom'].'">'.$resultado['nom'].'</option>';
+                    }
+                    echo '
+                    </select>
+                  </div>
+                    <button type="submit" name="btn" value="eliminar" class="btn btn-primary">Eliminar categoria</button>
+                </form>
+                ';
               }
             }
             ?>

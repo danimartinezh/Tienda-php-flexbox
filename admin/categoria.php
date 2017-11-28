@@ -23,6 +23,7 @@
           <nav class="navbar navbar-light bg-faded">
             <a class="navbar-brand" href="categoria.php?opcion=lista"><i class="fa fa-th-list fa-fw" aria-hidden="true"></i>Lista de categorias</a>
             <a class="navbar-brand" href="categoria.php?opcion=add"><i class="fa fa-plus-square fa-fw" aria-hidden="true"></i>Añadir categoria</a>
+            <a class="navbar-brand" href="categoria.php?opcion=del"><i class="fa fa-trash fa-fw" aria-hidden="true"></i>Eliminar categoria</a>
           </nav>
         </div>
         <div class="col-md-9">
@@ -78,6 +79,23 @@
                     </div>';
                   }
                 }
+              }else if($_GET['opcion']=='del'){
+                echo '
+                <form class="form-inline" method="post" action="validar.php">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <span class="input-group-addon"><i class="fa fa-list" aria-hidden="true"></i></span>
+                    <select class="custom-select" name="eliminarCat">';
+                    $sql = "SELECT nom from tbl_categoria";
+                    $result = mysqli_query($conexion,$sql);
+                    while($resultado=mysqli_fetch_assoc($result)){
+                      echo '<option value="'.$resultado['nom'].'">'.$resultado['nom'].'</option>';
+                    }
+                    echo '
+                    </select>
+                  </div>
+                    <button type="submit" name="btn" value="eliminar" class="btn btn-primary">Eliminar categoria</button>
+                </form>
+                ';
               }
             }
             ?>
