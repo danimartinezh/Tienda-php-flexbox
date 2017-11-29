@@ -1,4 +1,4 @@
-drop schema shop;
+drop schema if exists shop;
 create schema shop;
 
 use shop;
@@ -48,7 +48,7 @@ create table if not exists tbl_categoria(
     description longtext
 )engine=innodb;
 select * from tbl_categoria order by nom ASC;
-delete from tbl_categoria where nom like 'a%';
+delete from tbl_categoria where nom="";
 
 INSERT INTO tbl_categoria (nom,description) VALUES
 ('Categoria 1', 'Productos sobre categoria 1'),('Categoria 2', 'Productos sobre categoria 2'),('Categoria 3', 'Productos sobre categoria 3')
@@ -65,7 +65,7 @@ INSERT INTO tbl_marca (nom,description) VALUES ('MarcaPrueba','DescripcionPrueba
 create table if not exists tbl_product(
 	ID int(5) primary key,
     nom varchar(30),
-    image blob,
+    image longtext,
     precio decimal,
     cost decimal,
     category varchar(30),
@@ -92,7 +92,7 @@ INSERT INTO tbl_product (ID,nom,image,precio,cost,category,dte,stock,description
 INSERT INTO tbl_product (ID,nom,image,precio,cost,category,dte,stock,description,marca) VALUES (3,'Pelota','URL',199,200,'Categoria 1',0,77,'Descripcion larga xd','MarcaPrueba');
 
 select max(id) from tbl_product;
-
+select nom from tbl_marca;
 create table if not exists tbl_orderHeader(
 	usuari varchar(20) not null,
     fechaPedido date,
@@ -118,7 +118,7 @@ create table if not exists tbl_orderLine(
     references tbl_orderHeader (numPedido)
 )engine=innodb;
 
-
+SELECT nom from tbl_categoria
 
 
 /*

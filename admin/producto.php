@@ -59,7 +59,7 @@
                   <tr>
                   <th scope="row">'.$resultado['ID'].'</th>
                   <td>'.$resultado['nom'].'</td>
-                  <td>'.$resultado['image'].'</td>
+                  <td><a href="'.$rutaIMGp.$resultado['image'].'" target="_blank">'.$resultado['image'].'</a></td>
                   <td>'.$resultado['precio'].'</td>
                   <td>'.$resultado['cost'].'</td>
                   <td>'.$resultado['category'].'</td>
@@ -72,17 +72,72 @@
 
               }else if($_GET['opcion']=='add'){
                 echo '
-                <form class="form-inline" method="post" action="validar.php">
-                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <i class="input-group-addon fa fa-font" aria-hidden="true"></i>
-                    <input type="text" name="nombre" class="form-control" placeholder="Nombre">
-                  </div>
-                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <i class="input-group-addon fa fa-comment" aria-hidden="true"></i>
-                    <input type="text" name="descripcion" class="form-control" placeholder="Descripción">
-                  </div>
-                  <button type="submit" name="btn" value="categoria" class="btn btn-primary">Añadir categoria</button>
-                </form>
+                  <form class="container" method="post" enctype="multipart/form-data" action="validar.php">
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" placeholder="Nombre" name="nombre" required>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label>Imagen</label>
+                        <input type="file" class="form-control" name="imagen" required>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label>Precio</label>
+                        <input type="number" class="form-control" placeholder="100" name="precio" required>
+                        <div class="invalid-feedback">
+                        </div>
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label>Coste</label>
+                        <input type="number" class="form-control" placeholder="Coste" name="coste" required>
+                        <div class="invalid-feedback">
+                          Please provide a valid state.
+                        </div>
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label>Categoria</label>
+                        <select class="form-control" name="categoria">';
+                        $sql = "SELECT nom from tbl_categoria";
+                        $result = mysqli_query($conexion,$sql);
+                        while($resultado=mysqli_fetch_assoc($result)){
+                          echo '<option value="'.$resultado['nom'].'">'.$resultado['nom'].'</option>';
+                        }
+                        echo '
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label>Descuento</label>
+                        <input type="number" class="form-control" placeholder="Descuento" name="descuento" required>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label>Stock</label>
+                        <input type="number" class="form-control" placeholder="Stock" name="stock" required>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label>Marca</label>
+                        <select class="form-control" name="marca">';
+                        $sql = "SELECT nom from tbl_marca";
+                        $result = mysqli_query($conexion,$sql);
+                        while($resultado=mysqli_fetch_assoc($result)){
+                          echo '<option value="'.$resultado['nom'].'">'.$resultado['nom'].'</option>';
+                        }
+                        echo '
+                        </select>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label>Descripcion</label>
+                        <input type="text" class="form-control" placeholder="Descripcion" name="descripcion" required>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary" name="btn" value="producto" type="submit">Añadir producto</button>
+                  </form>
                 ';
                 if(isset($_SESSION['existe'])){
                   if(!$_SESSION['existe']){

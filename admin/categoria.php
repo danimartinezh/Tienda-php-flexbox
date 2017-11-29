@@ -93,7 +93,7 @@
                     echo '
                     </select>
                   </div>
-                    <button type="submit" name="btn" value="eliminar" class="btn btn-primary">Eliminar categoria</button>
+                    <button type="submit" name="btn" value="eliminarCat" class="btn btn-primary">Eliminar categoria</button>
                 </form>
                 ';
               }
