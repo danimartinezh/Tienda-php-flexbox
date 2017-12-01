@@ -17,7 +17,7 @@
   include '../datosbbdd.php';
   ?>
   <div class="main">
-    <div class="containermain">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-md-2">
           <nav class="navbar navbar-light bg-faded">
@@ -59,7 +59,7 @@
                   <tr>
                   <th scope="row">'.$resultado['ID'].'</th>
                   <td>'.$resultado['nom'].'</td>
-                  <td><a href="'.$rutaIMGp.$resultado['image'].'" target="_blank">'.$resultado['image'].'</a></td>
+                  <td><a href="'.$RUTA.$resultado['image'].'" target="_blank">'.$resultado['image'].'</a></td>
                   <td>'.$resultado['precio'].'</td>
                   <td>'.$resultado['cost'].'</td>
                   <td>'.$resultado['category'].'</td>
@@ -151,8 +151,8 @@
                 <form class="form-inline" method="post" action="validar.php">
                   <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                     <span class="input-group-addon"><i class="fa fa-list" aria-hidden="true"></i></span>
-                    <select class="custom-select" name="eliminarCat">';
-                    $sql = "SELECT nom from tbl_categoria";
+                    <select class="custom-select" name="eliminarPro">';
+                    $sql = "SELECT nom from tbl_product";
                     $result = mysqli_query($conexion,$sql);
                     while($resultado=mysqli_fetch_assoc($result)){
                       echo '<option value="'.$resultado['nom'].'">'.$resultado['nom'].'</option>';
@@ -160,7 +160,7 @@
                     echo '
                     </select>
                   </div>
-                    <button type="submit" name="btn" value="eliminar" class="btn btn-primary">Eliminar categoria</button>
+                    <button type="submit" name="btn" value="eliminarProducto" class="btn btn-primary">Eliminar producto</button>
                 </form>
                 ';
               }

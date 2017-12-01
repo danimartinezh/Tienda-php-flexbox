@@ -12,8 +12,8 @@ $port=3306;
 $user="root";
 $password="1234";
 $dbname="shop";
-$rutaIMG=$_SERVER['DOCUMENT_ROOT'].'\\tienda\\img\\imgarticulos\\';
-$rutaIMGp='\\tienda\\img\\imgarticulos\\';
+$RUTA='http://'.$_SERVER["SERVER_NAME"].'/tienda/img/imgarticulos/';
+$RUTAADM='../img/imgarticulos/';
 $conexion = mysqli_connect($host, $user, $password,$dbname,$port);
 if (!$conexion) {
   exit('No se puede conectar'.mysql_error());

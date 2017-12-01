@@ -17,16 +17,16 @@
   include '../datosbbdd.php';
   ?>
   <div class="main">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <nav class="navbar navbar-light bg-faded">
             <a class="navbar-brand" href="categoria.php?opcion=lista"><i class="fa fa-th-list fa-fw" aria-hidden="true"></i>Lista de categorias</a>
             <a class="navbar-brand" href="categoria.php?opcion=add"><i class="fa fa-plus-square fa-fw" aria-hidden="true"></i>Añadir categoria</a>
             <a class="navbar-brand" href="categoria.php?opcion=del"><i class="fa fa-trash fa-fw" aria-hidden="true"></i>Eliminar categoria</a>
           </nav>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-10">
           <div class="cabecera">
             <h1>Categorias</h1>
           </div>

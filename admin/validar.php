@@ -48,15 +48,15 @@ if($_REQUEST['btn']=='categoria'){
   $extension = end($trozos);//Cojo el ultimo array
   $nombre=time().'.'.$extension;//Para no repetir nombres añado fecha+extension Ex: 623178136.jpg
   // Compruebo si el arhivo existe
-  $fichero = $rutaIMG.$nombre;//Indico la ruta del fichero
+  $fichero = $RUTAADM.$nombre;//Indico la ruta del fichero
   if(is_file($fichero)){//Compruebo si el fichero existe
     //Es casi imposible que entre aqui, pero si entra le cambiamos el nombre hasta que no exista
     while(is_file($fichero)){
       $nombre='imagen'.(time()+1).'.'.$extension;
     }
   }else{
-    // Si no existe la imagen la muvo desde su ubicación temporal al directorio definitivo y la inserto en la base de datos
-    move_uploaded_file($_FILES['imagen']['tmp_name'],$rutaIMG.$nombre);
+    // Si no existe la imagen la muevo desde su ubicación temporal al directorio definitivo y la inserto en la base de datos
+    move_uploaded_file($_FILES['imagen']['tmp_name'],$RUTAADM.$nombre);
     $sql = "SELECT max(ID) from tbl_product";
     $result = mysqli_query($conexion,$sql);
     while($resultado=mysqli_fetch_assoc($result)){
@@ -66,11 +66,15 @@ if($_REQUEST['btn']=='categoria'){
     $sql = "INSERT INTO tbl_product (ID,nom,image,precio,cost,category,dte,stock,description,marca) VALUES ($ID,'$nombreProducto','$nombre',$precio,$coste,'$categoria',$descuento,$stock,'$descripcion','$marca')";
     $result = mysqli_query($conexion,$sql);
     mysqli_close($conexion);
+    header('Location: producto.php?opcion=lista');
   }
+}else if($_REQUEST['btn']=='eliminarProducto'){
+  $producto = $_REQUEST['eliminarPro'];
+  $sql = "DELETE FROM tbl_product where nom='".$producto."'";
+  $result = mysqli_query($conexion,$sql);
+  mysqli_close($conexion);
+  header('Location: producto.php?opcion=lista');
 }
-
-
-
 
 
 ?>
