@@ -21,7 +21,7 @@ SESSION_START();
         <form class="formularioregistro" method="post" action="validar.php">
           <div class="form-header">
             <img src="img/logo.png" alt="">
-            <h3 class="item">Registro</h3>
+            <h3 class="item"><a href="login.php">Quiero logearme</a></h3>
           </div>
           <div class="form-body form-registro">
             <div class="columna">

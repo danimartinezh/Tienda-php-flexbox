@@ -185,14 +185,17 @@ color: white !important; /* !important le añade prioridad sobre la clase de fle
   width: 100%;
 }
 
+.paginacion{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
 
-
-
-
-
-
-
-
+a,a:active,a:hover{
+  color: white;
+  text-decoration: none;
+}
 
 
 

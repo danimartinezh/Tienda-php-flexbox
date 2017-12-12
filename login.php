@@ -26,7 +26,7 @@ if(isset($_REQUEST['login'])){
         <form class="formulario" method="post" action="validar.php">
           <div class="form-header">
             <img src="img/logo.png" alt="">
-            <h3>Inicio de Sesión</h3>
+            <h3><a href="registro.php">Quiero registrarme</a></h3>
           </div>
           <div class="form-body form-login">
             <div class="input-group">

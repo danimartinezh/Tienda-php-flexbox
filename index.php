@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/flexboxgrid.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   <title>Peces Componentes</title>
   <!-- http://flexboxgrid.com/ --><!-- https://lenguajecss.com/p/css/propiedades/flexbox -->
   <!-- http://htmlcolorcodes.com/es/tabla-de-colores/ -->
@@ -23,7 +24,11 @@
       $categoria=$_GET['categoria'];
       include 'categoria.php';
     }else{
-      include 'body.php';
+      if(isset($_GET['carrito'])){
+        include 'carrito.php';
+      }else{
+        include 'body.php';
+      }
     }
   }
 }else{

@@ -8,6 +8,7 @@ drop table if exists tbl_categoria;
 drop table if exists tbl_usuaris;
 drop table if exists tbl_tipusUsuari;
 drop table if exists tbl_genre;
+drop table if exists tbl_carrito;
 
 
 create table if not exists tbl_genre(
@@ -56,6 +57,9 @@ create table if not exists tbl_categoria(
     nom varchar(30) primary key,
     description longtext
 )engine=innodb;
+
+Select ID from tbl_product;
+select count(*) from tbl_product;
 
 INSERT INTO tbl_categoria (nom,description) VALUES
 ('Categoria 1', 'Productos sobre categoria 1'),('Categoria 2', 'Productos sobre categoria 2'),('Categoria 3', 'Productos sobre categoria 3')
@@ -124,3 +128,20 @@ create table if not exists tbl_orderLine(
     constraint fk_order_HeaderLine foreign key(idPedido)
     references tbl_orderHeader (numPedido)
 )engine=innodb;
+
+create table if not exists tbl_carrito(
+	propietari varchar(20),		-- Es el nom de l'usuari que té aquesta línia del carrito
+    idProduct int(5),
+    qtt decimal,
+    price float,
+    primary key(propietari,idProduct),
+    
+	constraint fk_carritoUsuari 
+    foreign key(propietari) references tbl_usuaris(username)
+		on delete no action
+        on update cascade
+)engine=innodb;
+select * from tbl_carrito;
+
+select idProduct,qtt,price from tbl_carrito where propietari="dmartinezh";
+

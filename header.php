@@ -6,7 +6,8 @@
           <img src="img/logo.png" alt="Peces Componentes">
         </div>
         <nav class="menu col-xs-12 col-sm-8 center-xs end-sm">
-          <a href="#">Inicio</a>
+          <a href="index.php">Inicio</a>
+          <a href="index.php?carrito">Carrito</a>
           <?php
           if(isset($_COOKIE['nombre'])){
             if(isset($_COOKIE['tipousuario'])){
