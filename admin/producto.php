@@ -1,4 +1,6 @@
-<?php SESSION_START(); ?>
+<?php SESSION_START();
+include 'comprobacion.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -142,7 +144,7 @@
                 if(isset($_SESSION['existe'])){
                   if(!$_SESSION['existe']){
                     echo '<div class="input-group alert alert-danger middle-sm" role="alert">
-                      <span><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><strong> Esta categoria ya existe</strong></span>
+                      <span><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><strong> Esta producto ya existe</strong></span>
                     </div>';
                   }
                 }

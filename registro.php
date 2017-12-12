@@ -11,7 +11,7 @@ SESSION_START();
   <link rel="stylesheet" href="css/flexboxgrid.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Lobster|PT+Sans" rel="stylesheet">
+  <!--<link href="https://fonts.googleapis.com/css?family=Lobster|PT+Sans" rel="stylesheet">-->
   <title>Peces Componentes</title>
 </head>
 <body id="login">
@@ -41,6 +41,10 @@ SESSION_START();
                 <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
                 <input class="form-control" type="text" name="correo" placeholder="Correo Electronico">
               </div>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                <input class="form-control" type="text" name="correo2" placeholder="Confirmar Correo Electronico">
+              </div>
             </div>
             <div class="columna">
               <div class="input-group">
@@ -64,18 +68,29 @@ SESSION_START();
                 <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
                 <input class="form-control" type="password" name="password" placeholder="Contraseña">
               </div>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                <input class="form-control" type="date" name="fechanacimiento">
+              </div>
             </div>
           </div>
           <div class="form-body fecherror">
-            <div class="input-group fechanacimiento">
+            <!--<div class="input-group fechanacimiento">
               <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
               <input class="form-control" type="date" name="fechanacimiento">
-            </div>
+            </div>-->
             <?php
             if(isset($_SESSION['existe'])){
               if($_SESSION['existe']==1){
                 echo '<div class="input-group alert alert-danger middle-sm error" role="alert">
                   <span><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><strong> El usuario ya existe</strong></span>
+                </div>';
+              }
+            }
+            if(isset($_SESSION['correo'])){
+              if($_SESSION['correo']==1){
+                echo '<div class="input-group alert alert-danger middle-sm error" role="alert">
+                  <span><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><strong> El correo no coincide</strong></span>
                 </div>';
               }
             }

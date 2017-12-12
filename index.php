@@ -15,9 +15,20 @@
 </head>
 <body>
   <?php
-  include 'datosbbdd.php';
-  include 'header.php';
-  include 'body.php';
+  if(isset($_COOKIE["login"])){
+  if($_COOKIE["login"]==1){
+    include 'datosbbdd.php';
+    include 'header.php';
+    if(isset($_GET['categoria'])){
+      $categoria=$_GET['categoria'];
+      include 'categoria.php';
+    }else{
+      include 'body.php';
+    }
+  }
+}else{
+  header('Location: login.php');
+}
   ?>
 </body>
 </html>
