@@ -1,4 +1,6 @@
-<?php SESSION_START(); ?>
+<?php SESSION_START();
+include 'comprobacion.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
