@@ -16,7 +16,7 @@ if(isset($_REQUEST['login'])){
   <link rel="stylesheet" href="css/flexboxgrid.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
-  <!--<link href="https://fonts.googleapis.com/css?family=Lobster|PT+Sans" rel="stylesheet">-->
+  <link href="https://fonts.googleapis.com/css?family=Lobster|PT+Sans" rel="stylesheet">
   <title>Peces Componentes</title>
 </head>
 <body id="login">
