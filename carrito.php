@@ -22,7 +22,7 @@
             <th scope="row">'.$resultado['idProduct'].'</th>
             <td>'.$resultado['qtt'].'</td>
             <td>'.$resultado['price'].'</td>';
-            $suma+=$resultado['price'];
+            $suma=$resultado['price']*$resultado['qtt'];
           }
           echo '<tbody><th scope="row"></th>
           <td></td>
